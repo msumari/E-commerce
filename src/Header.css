@@ -2,7 +2,7 @@
   height: 60px;
   display: flex;
   align-items: center;
-  background-color: aliceblue;
+  background-color: cornflowerblue;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -13,4 +13,57 @@
   object-fit: contain;
   margin: 0 20px;
   margin-top: 5px;
+}
+
+.search {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  border-radius: 24px;
+}
+
+.search_input {
+  height: 12px;
+  padding: 10px;
+  border: none;
+  width: 90%;
+}
+
+.search_icon {
+  padding: 5px;
+  height: 22px !important;
+  background-color: royalblue;
+}
+
+.navigate {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: bisque;
+}
+.first {
+  font-size: 10px;
+}
+
+.second {
+  font-size: 13;
+  font-weight: 800;
+}
+
+.basket {
+  display: flex;
+  align-items: center;
+  color: bisque;
+}
+
+.basket_count {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: darkred;
 }
