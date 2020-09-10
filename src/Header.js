@@ -2,10 +2,12 @@ import React from "react";
 import "./Header.css";
 import SearchIcon from "@material-ui/icons/Search";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import MenuIcon from "@material-ui/icons/Menu";
 
 function Header() {
   return (
     <div className="header">
+      <MenuIcon className="menu" />
       <img className="logo" src="https://www.jd-pharmacy.com/img/logo.png" />
 
       <div className="search">

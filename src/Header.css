@@ -67,3 +67,11 @@
   margin-right: 10px;
   color: darkred;
 }
+
+.menu {
+  height: 30px;
+  width: auto;
+  margin: 3px;
+  fill: darkorange;
+  stroke: darkblue;
+}
