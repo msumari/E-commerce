@@ -1,7 +1,7 @@
 .product {
   display: flex;
   flex-direction: column;
-  background-color: bisque;
+  background-color: rgb(252, 248, 248);
   align-items: center;
   justify-content: flex-end;
   margin: 10px;
@@ -20,7 +20,7 @@
 }
 
 .product > button {
-  background-color: rgb(247, 224, 23);
+  background-color: rgb(252, 40, 40);
   border: 1px solid;
   margin-top: 10px;
   border-color: dimgrey;
@@ -35,4 +35,9 @@
   height: 100px;
   margin-bottom: 15px;
   width: 100%;
+}
+
+.rating{
+display: flex;
+
 }
