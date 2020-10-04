@@ -3,12 +3,17 @@ import "./Header.css";
 import SearchIcon from "@material-ui/icons/Search";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import MenuIcon from "@material-ui/icons/Menu";
+import { Link } from "react-router-dom";
+
 
 function Header() {
   return (
     <div className="header">
       <MenuIcon className="menu" />
-      <img className="logo" src="https://www.jd-pharmacy.com/img/logo.png" />
+      <Link to="/">
+        <img className="logo" src="https://www.jd-pharmacy.com/img/logo.png" />
+
+      </Link>
 
       <div className="search">
         <input
@@ -32,10 +37,13 @@ function Header() {
           <span className="first">Your</span>
           <span className="second">Health</span>
         </div>
-        <div className="basket">
-          <AddShoppingCartIcon />
-          <span className="second basket_count">0</span>
-        </div>
+        <Link to="/checkout">
+          <div className="basket">
+            <AddShoppingCartIcon />
+            <span className="second basket_count">0</span>
+          </div>
+        </Link>
+
       </div>
     </div>
   );
