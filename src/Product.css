@@ -10,6 +10,13 @@
   max-height: 400px;
   min-width: 100px;
   z-index: 1;
+  border-radius: 15px;
+  transition: 0.5s;
+}
+
+.product:hover{
+  transform: translateY(-50px);
+  box-shadow: 0 40px 70px rgba(200,100,255,0.5);
 }
 
 .product > img {
@@ -23,6 +30,7 @@
   background-color: rgb(252, 40, 40);
   border: 1px solid;
   margin-top: 10px;
+  border-radius: 30px;
   border-color: dimgrey;
   color: #111;
 }
