@@ -1,0 +1,28 @@
+.cart{
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.info{
+    padding-left: 20px;
+}
+
+.info > button{
+    background-color: brown;
+    border: 1px solid;
+    margin-top: 10px;
+    border-color: brown;
+    color: black;
+    border-radius: 8px;
+}
+.image{
+    object-fit: contain;
+    width: 180px;
+    height: 180px;
+}
+
+.title{
+    font-size: 17px;
+    font-weight: 800;
+}
