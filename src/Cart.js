@@ -2,12 +2,12 @@ import React from 'react'
 import './Cart.css';
 import { useStateValue } from "./StateProvider";
 
-function Cart({ image, title, price, rating }) {
+function Cart({ id, image, title, price, rating }) {
     const [{ basket }, dispatch] = useStateValue();
     const remove = () => {
         dispatch({
             type: 'REMOVE_FROM_BASKET',
-            title: title,
+            id: id,
         })
     }
     return (
