@@ -16,4 +16,30 @@ For ease of understanding we remove some files which are not needed now, which l
 - setupTest.js
 - logo.svg
 
-It will bring an error since in the App.js there is **import** of logo.svg we remove that and we should have a blank page that means we are good to go.
+It will bring an error since in the App.js there is **import** of logo.svg we remove that ,
+Now direct to the App.js everything that is between ``<div className="App"></div>`` should be discarded and we should have a blank page that means we are good to go.
+
+In src/ we will create basically six component that will serve us with home page and checkout page
+- Header.js : For our header.
+- Home.js : For our home page.
+- Product.js : For the product display.
+- Cart.js : For Basket items.
+- Checkout.js : For checkout page.
+- Subtotal.js : For total amount  of product.
+
+ ### App.js
+ We start with the core of the app where our components will be united to make a meaningfull web app .
+
+``import Header from "./Header.js";``
+
+   ``import Home from "./Home.js";``
+   
+  `` import { BrowserRouter as Router, Switch, Route }``
+   
+  `` from "react-router-dom";``
+   
+ `` import Checkout from "./Checkout";``
+  
+  The above peace of code is the one that is responsible for importing the header, homepage and checkout page components as well as react router
+  which will help us with the routing of links and the navigation bar as well.
+  
