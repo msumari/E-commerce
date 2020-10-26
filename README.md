@@ -41,5 +41,37 @@ In src/ we will create basically six component that will serve us with home page
  `` import Checkout from "./Checkout";``
   
   The above peace of code is the one that is responsible for importing the header, homepage and checkout page components as well as react router
-  which will help us with the routing of links and the navigation bar as well.
+  which will help us with the routing of links and the navigation bar as well.But this won't work until you ``npm install react-router-dom`` make sure it is done on the project directory. 
+  
+ ``function App() {``
+ 
+ `` return (``
+ 
+   `` <Router>``
+   
+      <div className="App">
+        <Header />
+        <Switch>
+
+          <Route path="/checkout">
+            <Checkout />
+          </Route>
+
+          <Route path="/">
+            <Home />
+          </Route>
+
+        </Switch>
+
+      </div>
+    </Router>
+
+Notice the wrapping of all app class in a router tag which will act like a guider to the inner route tags of the specific links.
+The header is outside switch tag so as to be renderend no matter what router is called .
+So as to say switch tag takes the burden of switching the route at your command but always remember ***Important*** the path="/"
+always stay at the bottom route must so if any root fails there will be redirecting to root page.
+
+
+
+
   
