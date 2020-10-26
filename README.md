@@ -71,6 +71,26 @@ The header is outside switch tag so as to be renderend no matter what router is 
 So as to say switch tag takes the burden of switching the route at your command but always remember ***Important*** the path="/"
 always stay at the bottom route must so if any root fails there will be redirecting to root page.
 
+### Header.js
+
+``import React from "react";``
+
+``import "./Header.css";``
+
+``import SearchIcon from "@material-ui/icons/Search";``
+
+``import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";``
+
+``import MenuIcon from "@material-ui/icons/Menu";``
+
+``import { Link } from "react-router-dom";``
+
+The above lines dictate that we create a css file that will style the header component as every component to look good it need styling :wink:
+and it is linked to the component.
+And then there are those three icons search, basket and menu which we leverage from [Material-ui](https://material-ui.com/components/material-icons/), 
+with the link importation from react router so we can create link.
+
+
 
 
 
