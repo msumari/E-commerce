@@ -90,8 +90,98 @@ and it is linked to the component.
 And then there are those three icons search, basket and menu which we leverage from [Material-ui](https://material-ui.com/components/material-icons/), 
 with the link importation from react router so we can create link.
 
+``<div className="header">``
+
+      ``<MenuIcon className="menu" />``
+      
+     `` <Link to="/">
+        <img className="logo" src="https://www.jd-pharmacy.com/img/logo.png" />``
+
+      </Link>
+
+      <div className="search">
+        <input
+          className="search_input"
+          type="text"
+          placeholder="Search medicine here..."
+        />
+        <SearchIcon className="search_icon" />
+      </div>
 
 
+This snippet shows the linking of logo to the home route and some of the arrrangement of the header by the help of flex box from the css below
+
+``.header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: cornflowerblue;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+``
+
+### Home.js
+
+``import "./Home.css";``
+
+``import Product from "./Product.js";``
+ In Home component the important import is the css file and the product component since this is an e-commerce pretty much the products,
+  should be displayed on the home page .
+  
+ `` <img
+          className="banner"
+          src="https://www.adroitinfosystems.com/images/siteimages/pages/finalImgforpages/epharmacy1.jpg"
+          alt=" "
+        />
+        <div className="row">
+          <Product
+            id={1}
+            title="Aspirin"
+            price={19.99}
+            image="https://i5.walmartimages.ca/images/Enlarge/432/325/6000198432325.jpg"
+            rating={4}
+          />``
+          
+ The above code tells that home page have a banner and rows of product which thanks to flex box they stay pretty much good though i really advice you should
+ know your way around css but nevertheless is the sample css of this home page.
+ 
+``.home {
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1500px;
+}
+``
 
 
+### Product.js
+
+``function Product({ id, title, image, price, rating })``
+
+Well the function for product is a little different we pass some parameters so just to avoid every time tampering with the 
+product component and just pass the data from the home component as you had observed.
+
+``<div className="product">
+      <div className="info">
+        <p><strong>{title}</strong></p>
+        <p className="price">
+          <small>$</small>
+          <strong>{price}</strong>
+        </p>
+        <div className="rating">
+          {Array(rating)
+            .fill()
+            .map((_, i) => (
+              <p>⭐</p>
+            ))}
+        </div>
+      </div>``
+   
+   Basically, all the place with the {parameter}  is the place where the data passed by  the function is going to stay.
+   the ``.map((_, i) => ( <p>⭐</p>`` is the place that deals with the ratings of the product.
+   
+   
   
