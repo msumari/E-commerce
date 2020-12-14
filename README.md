@@ -1,68 +1,187 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# E-commerce React Template 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) on a [VS code editor](https://code.visualstudio.com/download).
 
-## Available Scripts
+In this project you will get a starting point and a stepping stone towards creating an e-commerce project with the help of ReactJS library.
+For starting lets clone the project and have it in our local machine . I am on Windows 10 and using VScode as editor but even on Mac or linux distro,
+you don't have to worry it will work perfectly so let's go :rocket:.
 
-In the project directory, you can run:
+### Start React project 
+In VS code Press ``ctrl + J`` to get the terminal then create a folder where our project is going to sit on by ``mkdir name of folder`` then  we navigate to the path of our project folder is located by ``cd Path of folder``,
+after we alive at the directory of our project you write ``npx create-react-app`` to create a new react project that we will work on,if you see the **Happy hacking** in the 
+end of installation then your good to go . Now to see where we are we write ``npm start`` and the react starter page will start on the browser,now the work starts.
 
-### `npm start`
+## Project file management
+For ease of understanding we remove some files which are not needed now, which luckly they are all in ``src/``directory.
+- App.Test.js
+- setupTest.js
+- logo.svg
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+It will bring an error since in the App.js there is **import** of logo.svg we remove that ,
+Now direct to the App.js everything that is between ``<div className="App"></div>`` should be discarded and we should have a blank page that means we are good to go.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+In src/ we will create basically six component that will serve us with home page and checkout page
+- Header.js : For our header.
+- Home.js : For our home page.
+- Product.js : For the product display.
+- Cart.js : For Basket items.
+- Checkout.js : For checkout page.
+- Subtotal.js : For total amount  of product.
 
-### `npm test`
+ ### App.js
+ We start with the core of the app where our components will be united to make a meaningfull web app .
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+``import Header from "./Header.js";``
 
-### `npm run build`
+   ``import Home from "./Home.js";``
+   
+  `` import { BrowserRouter as Router, Switch, Route }``
+   
+  `` from "react-router-dom";``
+   
+ `` import Checkout from "./Checkout";``
+  
+  The above peace of code is the one that is responsible for importing the header, homepage and checkout page components as well as react router
+  which will help us with the routing of links and the navigation bar as well.But this won't work until you ``npm install react-router-dom`` make sure it is done on the project directory. 
+  
+ ``function App() {``
+ 
+ `` return (``
+ 
+   `` <Router>``
+   
+      <div className="App">
+        <Header />
+        <Switch>
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+          <Route path="/checkout">
+            <Checkout />
+          </Route>
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+          <Route path="/">
+            <Home />
+          </Route>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+        </Switch>
 
-### `npm run eject`
+      </div>
+    </Router>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Notice the wrapping of all app class in a router tag which will act like a guider to the inner route tags of the specific links.
+The header is outside switch tag so as to be renderend no matter what router is called .
+So as to say switch tag takes the burden of switching the route at your command but always remember ***Important*** the path="/"
+always stay at the bottom route must so if any root fails there will be redirecting to root page.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Header.js
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+``import React from "react";``
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+``import "./Header.css";``
 
-## Learn More
+``import SearchIcon from "@material-ui/icons/Search";``
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+``import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";``
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+``import MenuIcon from "@material-ui/icons/Menu";``
 
-### Code Splitting
+``import { Link } from "react-router-dom";``
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+The above lines dictate that we create a css file that will style the header component as every component to look good it need styling :wink:
+and it is linked to the component.
+And then there are those three icons search, basket and menu which we leverage from [Material-ui](https://material-ui.com/components/material-icons/), 
+with the link importation from react router so we can create link.
 
-### Analyzing the Bundle Size
+``<div className="header">``
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+      ``<MenuIcon className="menu" />``
+      
+     `` <Link to="/">
+        <img className="logo" src="https://www.jd-pharmacy.com/img/logo.png" />``
 
-### Making a Progressive Web App
+      </Link>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+      <div className="search">
+        <input
+          className="search_input"
+          type="text"
+          placeholder="Search medicine here..."
+        />
+        <SearchIcon className="search_icon" />
+      </div>
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+This snippet shows the linking of logo to the home route and some of the arrrangement of the header by the help of flex box from the css below
 
-### Deployment
+``.header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: cornflowerblue;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+``
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+### Home.js
 
-### `npm run build` fails to minify
+``import "./Home.css";``
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+``import Product from "./Product.js";``
+ In Home component the important import is the css file and the product component since this is an e-commerce pretty much the products,
+  should be displayed on the home page .
+  
+ `` <img
+          className="banner"
+          src="https://www.adroitinfosystems.com/images/siteimages/pages/finalImgforpages/epharmacy1.jpg"
+          alt=" "
+        />
+        <div className="row">
+          <Product
+            id={1}
+            title="Aspirin"
+            price={19.99}
+            image="https://i5.walmartimages.ca/images/Enlarge/432/325/6000198432325.jpg"
+            rating={4}
+          />``
+          
+ The above code tells that home page have a banner and rows of product which thanks to flex box they stay pretty much good though i really advice you should
+ know your way around css but nevertheless is the sample css of this home page.
+ 
+``.home {
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1500px;
+}
+``
+
+
+### Product.js
+
+``function Product({ id, title, image, price, rating })``
+
+Well the function for product is a little different we pass some parameters so just to avoid every time tampering with the 
+product component and just pass the data from the home component as you had observed.
+
+``<div className="product">
+      <div className="info">
+        <p><strong>{title}</strong></p>
+        <p className="price">
+          <small>$</small>
+          <strong>{price}</strong>
+        </p>
+        <div className="rating">
+          {Array(rating)
+            .fill()
+            .map((_, i) => (
+              <p>⭐</p>
+            ))}
+        </div>
+      </div>``
+   
+   Basically, all the place with the {parameter}  is the place where the data passed by  the function is going to stay.
+   the ``.map((_, i) => ( <p>⭐</p>`` is the place that deals with the ratings of the product.
+   
+   
+  
